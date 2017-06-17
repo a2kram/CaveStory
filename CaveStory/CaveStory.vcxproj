@@ -68,13 +68,21 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\a2kram\OneDrive\Documents\Visual Studio 2015\Libraries\SDL2_image-2.0.1\include;C:\Users\a2kram\OneDrive\Documents\Visual Studio 2015\Projects\CaveStory\CaveStory\inc;C:\Users\a2kram\OneDrive\Documents\Visual Studio 2015\Libraries\SDL2-2.0.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\a2kram\OneDrive\Documents\Visual Studio 2015\Libraries\SDL2_image-2.0.1\lib\x86;C:\Users\a2kram\OneDrive\Documents\Visual Studio 2015\Libraries\SDL2-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Users\a2kram\OneDrive\Documents\Visual Studio 2015\Projects\CaveStory\CaveStory\res;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -110,6 +118,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\AnimatedSprite.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Graphics.cpp" />
+    <ClCompile Include="src\Input.cpp" />
+    <ClCompile Include="src\Level.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Sprite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\AnimatedSprite.h" />
+    <ClInclude Include="inc\Game.h" />
+    <ClInclude Include="inc\Globals.h" />
+    <ClInclude Include="inc\Graphics.h" />
+    <ClInclude Include="inc\Input.h" />
+    <ClInclude Include="inc\Level.h" />
+    <ClInclude Include="inc\Player.h" />
+    <ClInclude Include="inc\Sprite.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Backgrounds\bkBlue.png" />
+    <Image Include="res\Sprites\MyChar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Maps\Map1.tmx">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
